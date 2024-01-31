@@ -2,6 +2,7 @@ package Java3.A1;
 
 /**
  * Store all the MariaDB connection properties here.
+ * start
  */
 public class BooksDBProperties {
 
