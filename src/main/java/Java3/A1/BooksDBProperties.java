@@ -14,6 +14,7 @@ public class BooksDBProperties {
     //Specific test database URL
     static final String JAVA_BOOKS_DB_URL = "jdbc:mariadb://localhost:3308/books?user=root&password=JavaImran2024";
 
+
     static final String QUERY_ALL_AUTHORS = "SELECT * FROM authors;";
     static final String QUERY_ALL_TITLES = "SELECT * FROM titles;";
 
