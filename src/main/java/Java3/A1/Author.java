@@ -5,8 +5,48 @@ import java.sql.Connection;
 
 public class Author {
 
-    public  String authorName;
+    public  String FirstName;
+    public  String LastName;
+    public  String authorID;
     private List<Book> bookList;
+
+    public Author(String authorFirstName, String authorLastName, String authorID) {
+        this.FirstName = authorFirstName;
+        this.LastName = authorLastName;
+        this.authorID = authorID;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.FirstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.LastName = lastName;
+    }
+
+    public String getAuthorID() {
+        return authorID;
+    }
+
+    public void setAuthorID(String authorID) {
+        this.authorID = authorID;
+    }
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
 
     public static void main(String[] args) {
         System.out.println("All the authors");

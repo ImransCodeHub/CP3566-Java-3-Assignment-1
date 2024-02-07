@@ -5,11 +5,38 @@ import java.sql.*;
 import java.util.List;
 
 public class Book {
+    public Book(String isbn, String title, String editionNumber, String copyright) {
+        this.isbn = isbn;
+        this.title = title;
+        this.editionNumber = editionNumber;
+        this.copyright = copyright;
+    }
 
+    public String isbn;
     public String title;
-
+    public String editionNumber;
+    public String copyright;
     private List<Author> authorList;
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getEditionNumber() {
+        return editionNumber;
+    }
+
+    public String getCopyRight() {
+        return copyright;
+    }
+
+    public List<Author> getAuthorList() {
+        return authorList;
+    }
 
     public static void main(String[] args) {
         System.out.println("All the books");
