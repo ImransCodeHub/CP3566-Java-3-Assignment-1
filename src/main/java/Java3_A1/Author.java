@@ -1,5 +1,6 @@
 package Java3_A1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Author {
@@ -10,11 +11,11 @@ public class Author {
 
     // Constructor, getters, setters
 
-    public Author(int authorID, String firstName, String lastName, List<Book> bookList) {
+    public Author(int authorID, String firstName, String lastName) {
         this.authorID = authorID;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.bookList = bookList;
+        this.bookList = new ArrayList<>();
     }
 
     public int getAuthorID() {
@@ -47,5 +48,9 @@ public class Author {
 
     public void setBookList(List<Book> bookList) {
         this.bookList = bookList;
+    }
+
+    public void addBook(Book book) {
+        bookList.add(book);
     }
 }
