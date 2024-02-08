@@ -52,7 +52,7 @@ public class BookApplication {
             System.out.println("Title: " + book.getTitle());
             System.out.println("Edition Number: " + book.getEditionNumber());
             System.out.println("Copyright: " + book.getCopyright());
-            System.out.println("Authors:");
+            System.out.println("Authors:" + book.getAuthorList().size());
             for (Author author : book.getAuthorList()) {
                 System.out.println("- " + author.getFirstName() + " " + author.getLastName());
             }
@@ -65,7 +65,7 @@ public class BookApplication {
         for (Author author : authors) {
             System.out.println("Author ID: " + author.getAuthorID());
             System.out.println("Name: " + author.getFirstName() + " " + author.getLastName());
-            System.out.println("Books:");
+            System.out.println("Books: " + author.getBookList().size());
             for (Book book : author.getBookList()) {
                 System.out.println("- " + book.getTitle());
             }
