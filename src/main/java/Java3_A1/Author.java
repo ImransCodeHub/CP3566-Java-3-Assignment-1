@@ -12,8 +12,6 @@ public class Author {
     private String lastName;
     private List<Book> bookList;
 
-    // Constructor, getters, setters
-
     public Author(int authorID, String firstName, String lastName) {
         this.authorID = authorID;
         this.firstName = firstName;

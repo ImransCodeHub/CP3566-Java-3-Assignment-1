@@ -37,13 +37,13 @@ public class BookDatabaseManager {
     public void addBook(Book book) {
         try {
             PreparedStatement stmt = connection.prepareStatement("INSERT INTO titles (isbn, title, editionNumber, copyright) VALUES (?, ?, ?, ?)");
-            PreparedStatement stmt2 = connection.prepareStatement("INSERT INTO authorISBN (isbn, authorID) VALUES (?, ?)");
             stmt.setString(1, book.getIsbn());
             stmt.setString(2, book.getTitle());
             stmt.setInt(3, book.getEditionNumber());
             stmt.setString(4, book.getCopyright());
             stmt.executeUpdate();
 
+            PreparedStatement stmt2 = connection.prepareStatement("INSERT INTO authorISBN (isbn, authorID) VALUES (?, ?)");
             stmt2.setString(1, book.getIsbn());
             for (Author author : book.getAuthorList()) {
                 stmt2.setInt(2, author.getAuthorID());
