@@ -3,10 +3,18 @@ package Java3_A1;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class is responsible for managing the book application.
+ * It provides a command-line interface for interacting with the Book and Author classes.
+ */
 public class BookApplication {
     private static final BookDatabaseManager dbManager = new BookDatabaseManager();
     private static final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Main method to run the book application.
+     * @param args Command-line arguments.
+     */
     public static void main(String[] args) {
         int choice;
         do {
@@ -18,7 +26,7 @@ public class BookApplication {
             System.out.println("5. Quit");
 
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -34,8 +42,7 @@ public class BookApplication {
                     addNewAuthor();
                     break;
                 case 5:
-                    System.out.println("Exiting...");
-                    dbManager.closeConnection();
+                    System.out.println("...Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid choice. Please enter a number between 1 and 5.");
@@ -45,7 +52,10 @@ public class BookApplication {
         scanner.close();
     }
 
-    private static void printAllBooks() {
+    /**
+     * Prints all books and their associated authors.
+     */
+    public static void printAllBooks() {
         List<Book> books = dbManager.getAllBooks();
         for (Book book : books) {
             System.out.println("ISBN: " + book.getIsbn());
@@ -60,7 +70,10 @@ public class BookApplication {
         }
     }
 
-    private static void printAllAuthors() {
+    /**
+     * Prints all authors and their associated books.
+     */
+    public static void printAllAuthors() {
         List<Author> authors = dbManager.getAllAuthors();
         for (Author author : authors) {
             System.out.println("Author ID: " + author.getAuthorID());
@@ -74,17 +87,20 @@ public class BookApplication {
     }
 
 
+    /**
+     * Adds a book for an existing author.
+     * The user will be prompted to select an author and then enter book details.
+     * The book will be added to the database and associated with the selected author.
+     */
     private static void addBookForExistingAuthor() {
-        // Print all authors to allow the user to select an author
         List<Author> authors = dbManager.getAllAuthors();
         System.out.println("Select an author to add a book:");
         for (int i = 0; i < authors.size(); i++) {
             System.out.println((i + 1) + ". " + authors.get(i).getFirstName() + " " + authors.get(i).getLastName());
         }
 
-        // Get user input for the author index
         int authorIndex = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         if (authorIndex < 1 || authorIndex > authors.size()) {
             System.out.println("Invalid author index.");
             return;
@@ -92,41 +108,38 @@ public class BookApplication {
 
         Author selectedAuthor = authors.get(authorIndex - 1);
 
-        // Prompt the user for book details
         System.out.println("Enter ISBN:");
         String isbn = scanner.nextLine();
         System.out.println("Enter title:");
         String title = scanner.nextLine();
         System.out.println("Enter edition number:");
         int editionNumber = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         System.out.println("Enter copyright:");
         String copyright = scanner.nextLine();
 
-        // Create a new Book object
         Book newBook = new Book(isbn, title, editionNumber, copyright);
 
-        // Add the book to the selected author
         selectedAuthor.addBook(newBook);
         newBook.addAuthor(selectedAuthor);
 
-        // Add the book to the database
         dbManager.addBook(newBook);
 
         System.out.println("Book added successfully for author: " + selectedAuthor.getFirstName() + " " + selectedAuthor.getLastName());
     }
 
+    /**
+     * Adds a new author to the database.
+     * The user will be prompted to enter the author's first and last name.
+     */
     private static void addNewAuthor() {
-        // Prompt the user for author details
         System.out.println("Enter first name:");
         String firstName = scanner.nextLine();
         System.out.println("Enter last name:");
         String lastName = scanner.nextLine();
 
-        // Create a new Author object
         Author newAuthor = new Author(0, firstName, lastName);
 
-        // Add the author to the database
         dbManager.addAuthor(newAuthor);
 
         System.out.println("New author added successfully: " + newAuthor.getFirstName() + " " + newAuthor.getLastName());

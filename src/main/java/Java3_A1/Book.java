@@ -3,14 +3,15 @@ package Java3_A1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Book class with isbn, title, editionNumber, and authorList attributes
+ */
 public class Book {
     private String isbn;
     private String title;
     private int editionNumber;
     private String copyright;
     private List<Author> authorList;
-
-    // Constructor, getters, setters
 
     public Book(String isbn, String title, int editionNumber, String copyright) {
         this.isbn = isbn;

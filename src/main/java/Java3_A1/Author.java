@@ -3,6 +3,9 @@ package Java3_A1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author class with authorID, firstName, lastName, and bookList attributes
+ */
 public class Author {
     private int authorID;
     private String firstName;
