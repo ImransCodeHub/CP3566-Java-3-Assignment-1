@@ -12,6 +12,12 @@ public class Author {
     private String lastName;
     private List<Book> bookList;
 
+    /**
+     * Constructor for Author
+     * @param authorID Author's authorID
+     * @param firstName Author's firstName
+     * @param lastName Author's lastName
+     */
     public Author(int authorID, String firstName, String lastName) {
         this.authorID = authorID;
         this.firstName = firstName;
@@ -19,6 +25,9 @@ public class Author {
         this.bookList = new ArrayList<>();
     }
 
+    /**
+     * Getters and setters for Author attributes
+     */
     public int getAuthorID() {
         return authorID;
     }
@@ -51,6 +60,10 @@ public class Author {
         this.bookList = bookList;
     }
 
+    /**
+     * Adds a book to the author's book list
+     * @param book Book to add
+     */
     public void addBook(Book book) {
         bookList.add(book);
     }

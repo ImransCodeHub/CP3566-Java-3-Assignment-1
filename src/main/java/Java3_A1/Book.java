@@ -28,6 +28,9 @@ public class Book {
         this.authorList = new ArrayList<>();;
     }
 
+    /**
+     * Getters and setters for Book attributes
+     */
     public String getIsbn() {
         return isbn;
     }
@@ -68,6 +71,10 @@ public class Book {
         this.authorList = authorList;
     }
 
+    /**
+     * Adds an author to the book's authorList
+     * @param author Author to add
+     */
     public void addAuthor(Author author) {
         authorList.add(author);
     }
